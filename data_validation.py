@@ -4,7 +4,7 @@ import time as ttime
 from prefect import flow, task
 from tiled.client import from_profile
 
-BEAMLINE_OR_ENDSTATION = "!!! Set the endstation or beamline_TLA here !!!"
+BEAMLINE_OR_ENDSTATION = "CDI"
 
 
 @task(retries=2, retry_delay_seconds=10)
