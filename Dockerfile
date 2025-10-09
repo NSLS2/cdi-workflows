@@ -3,7 +3,7 @@ FROM ghcr.io/prefix-dev/pixi:latest
 ENV TZ="America/New_York"
 
 RUN apt-get -y update && \
-    apt-get -y install git
+    apt-get -y install git tzdata
 
 COPY pixi.toml .
 COPY pixi.lock .
