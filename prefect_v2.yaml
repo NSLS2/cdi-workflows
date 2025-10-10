@@ -1,5 +1,5 @@
 name: prefect-tiled-cdi
-prefect-version: 3.6.0
+prefect-version: 2.22.0
 
 build: null
 
