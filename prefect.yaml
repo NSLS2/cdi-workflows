@@ -1,5 +1,5 @@
 name: prefect-docker-pixi-tiled-cdi
-prefect-version: 3.6.0
+prefect-version: 3.4.15
 
 build: null
 
