@@ -1,0 +1,24 @@
+name: prefect-tiled-cdi
+prefect-version: 2.22.0
+
+build: null
+
+push: null
+
+pull:
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/nsls2/cdi-workflows.git
+      branch: main
+
+deployments:
+  - name: cdi-end-of-run-workflow
+    version: 0.1.0
+    tags:
+      - cdi
+      - main
+    description: Deploy image to run via process
+    entrypoint: end_of_run_workflow.py:end_of_run_workflow
+    parameters: {}
+    schedule: {}
+    work_pool:
+      name: cdi-work-pool
