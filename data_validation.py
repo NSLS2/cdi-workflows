@@ -13,9 +13,9 @@ def read_all_streams(uid, beamline_acronym=BEAMLINE_OR_ENDSTATION):
     api_key = Secret.load(f"tiled-{beamline_acronym}-api-key", _sync=True).get()
     tiled_client = from_profile("nsls2", api_key=api_key)
     run = tiled_client[beamline_acronym]["raw"][uid]
-    print(f"Validating uid {run.metadata['start']['uid']}")
+    print(f"Validating uid {run.start['uid']}")
     start_time = ttime.monotonic()
-    for stream in run:
+    for stream in run['streams']:
         print(f"{stream}:")
         stream_start_time = ttime.monotonic()
         stream_data = run[stream].read()
