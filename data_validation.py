@@ -18,7 +18,7 @@ def read_all_streams(uid, beamline_acronym=BEAMLINE_OR_ENDSTATION):
     for stream in run['streams']:
         print(f"{stream}:")
         stream_start_time = ttime.monotonic()
-        stream_data = run[stream].read()
+        stream_data = run['streams'][stream].read()
         stream_elapsed_time = ttime.monotonic() - stream_start_time
         print(f"{stream} elapsed_time = {stream_elapsed_time}")
         print(f"{stream} nbytes = {stream_data.nbytes:_}")
