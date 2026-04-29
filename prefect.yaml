@@ -29,6 +29,7 @@ deployments:
         network: slirp4netns
         volumes:
           - /nsls2/data/cdi/proposals:/nsls2/data/cdi/proposals
+          - /srv/prefect3-docker-worker-cdi/app:/srv
         container_create_kwargs:
           userns_mode: "keep-id:uid=408584,gid=408584"  # workflow-cdi:workflow-cdi
         auto_remove: true
