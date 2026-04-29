@@ -7,7 +7,7 @@ def log_completion():
     logger.info("Complete")
 
 @flow(log_prints=True)
-def end_of_run_workflow(stop_doc):
+def end_of_run_workflow(stop_doc, api_key=None):
     uid = stop_doc["run_start"]
-    data_validation(uid)
+    data_validation(uid, api_key=api_key)
     log_completion()
