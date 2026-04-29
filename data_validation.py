@@ -28,7 +28,7 @@ def read_stream(run, stream):
     return run[stream].read()
 
 
-@task(retries=2, retry_delay_seconds=10)
+@flow
 def data_validation(uid, api_key=None, beamline_acronym=BEAMLINE_OR_ENDSTATION):
     run = get_run(uid)
     print(f"Validating uid {run.start['uid']}")
