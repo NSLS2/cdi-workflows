@@ -14,7 +14,7 @@ pull:
 
 deployments:
   - name: cdi-end-of-run-workflow-docker
-    version: 0.1.0
+    version: 0.1.1
     tags:
       - cdi
       - main
@@ -24,14 +24,11 @@ deployments:
     schedule: {}
     work_pool:
       job_variables:
-        env:
-          TILED_SITE_PROFILES: /nsls2/software/etc/tiled/profiles
         image: ghcr.io/nsls2/cdi-workflows:main
         image_pull_policy: Always
         network: slirp4netns
         volumes:
           - /nsls2/data/cdi/proposals:/nsls2/data/cdi/proposals
-          - /nsls2/software/etc/tiled:/nsls2/software/etc/tiled
         container_create_kwargs:
           userns_mode: "keep-id:uid=408584,gid=408584"  # workflow-cdi:workflow-cdi
         auto_remove: true
