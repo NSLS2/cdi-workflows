@@ -14,7 +14,7 @@ pull:
 
 deployments:
   - name: cdi-end-of-run-workflow-docker
-    version: 0.1.1
+    version: 0.1.2
     tags:
       - cdi
       - main
