@@ -16,7 +16,7 @@ def get_api_key_from_env(api_key=None):
 
 
 @task(retries=2, retry_delay_seconds=10)
-def get_run(uid, api_key=None):
+def get_run(uid, api_key=None, beamline_acronym=None):
     if not api_key:
         api_key = get_api_key_from_env()
     cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
@@ -30,7 +30,7 @@ def read_stream(run, stream):
 
 @flow
 def data_validation(uid, api_key=None, beamline_acronym=BEAMLINE_OR_ENDSTATION):
-    run = get_run(uid)
+    run = get_run(uid, api_key=api_key, beamline_acronym=beamline_acronym)
     print(f"Validating uid {run.start['uid']}")
     start_time = ttime.monotonic()
     for stream in run['streams']:
