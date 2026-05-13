@@ -16,7 +16,7 @@ def get_api_key_from_env(api_key=None):
 
 
 @task(retries=2, retry_delay_seconds=10)
-def get_run(uid, api_key=None, beamline_acronym=None):
+def get_run(uid, api_key=None, beamline_acronym=BEAMLINE_OR_ENDSTATION):
     if not api_key:
         api_key = get_api_key_from_env()
     cl = from_uri("https://tiled.nsls2.bnl.gov", api_key=api_key)
